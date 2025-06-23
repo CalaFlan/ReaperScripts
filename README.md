@@ -1,2 +1,2 @@
 # ReaperScripts
-Some reaper scripts i use and find useful.
+Reaper scripts I've written and find useful for work 
