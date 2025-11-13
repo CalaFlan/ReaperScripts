@@ -2,12 +2,15 @@
 -- Get the number of tracks in the project
 local NumberOfTracks = reaper.CountTracks(0)
 
--- Check if its a folder track
+-- Check if its a folder track (treat any non-zero folder depth as a folder boundary)
 function CheckIfFolder(track)
-    -- Check if the track is a folder track
-    local isFolder = reaper.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") > 0
-    return isFolder
-    -- body
+    -- I_FOLDERDEPTH >0 = folder start, <0 = folder end. Treat both as folder boundary.
+    local depth = reaper.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH")
+    if depth ~= 0 then
+        return true
+    else
+        return false
+    end
 end
 
 -- Check if the track has any FX.
