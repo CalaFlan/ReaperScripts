@@ -8,7 +8,7 @@ local function get_last_file_name(directory)
     return file_name
  end
  
- local directory = [[d:\OBSRecordings\]] -- <--- Replace this with your chosen directory (OBS Output path, Downloads, Ect)
+ local directory = [[d:\OBSRecordings\]] -- <--- Replace this with your chosen directory (OBS Output path, Downloads, Ect) dont forget the "\" at the end!
  local file_name = get_last_file_name(directory)
  if file_name then
     reaper.InsertMedia(directory..file_name,1)
